@@ -8,7 +8,8 @@ Currently, we support below channels:
 * Also they has different types of permission. Suppose Youtube current API version, don't allow create post from API
 
 **Project Structure and Output after Run**
-[Browse this drive link](https://drive.google.com/drive/folders/1FBiJr9YiFRMoOpbGdrii5wbFUU6Q-zia?usp=sharing)
+
+[To view files, please browse this drive link](https://drive.google.com/drive/folders/1FBiJr9YiFRMoOpbGdrii5wbFUU6Q-zia?usp=sharing)
 
 **Build instructions**
 
