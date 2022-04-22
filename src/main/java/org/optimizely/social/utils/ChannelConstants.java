@@ -18,4 +18,9 @@ public class ChannelConstants {
     public static final String YOUTUBE_ACCESS_TOKEN = "";
     public static final String YOUTUBE_API_KEY = "";
     public static final String YOUTUBE_CLIENT_ID = "";
+
+    // Optimizely related constants
+    public static final String OPTIMIZELY_ACCESS_TOKEN = "";
+    public static final String OPTIMIZELY_USER_NAME = "";
+    public static final String OPTIMIZELY_CREDENTIAL = "";
 }

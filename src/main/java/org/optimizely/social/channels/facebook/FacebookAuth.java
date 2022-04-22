@@ -2,17 +2,17 @@ package org.optimizely.social.channels.facebook;
 
 import org.optimizely.social.Channel;
 
-public class FaceBookAuth {
+public class FacebookAuth {
     private String appId;
     private String appSecret;
     private String accessToken;
 
-    public FaceBookAuth(String appId, String appSecret) {
+    public FacebookAuth(String appId, String appSecret) {
         this.appId = appId;
         this.appSecret = appSecret;
     }
 
-    public FaceBookAuth accessToken(String accessToken) {
+    public FacebookAuth accessToken(String accessToken) {
         if (accessToken == null) {
             initFacebookAuthorization();
         } else {

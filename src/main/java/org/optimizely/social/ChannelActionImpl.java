@@ -2,7 +2,7 @@ package org.optimizely.social;
 
 import org.optimizely.social.utils.ChannelsActionService;
 
-public class AccountActionImpl implements ChannelsActionService {
+public class ChannelActionImpl implements ChannelsActionService {
     private Channel channel;
 
     public Channel getChannel() {
