@@ -13,6 +13,7 @@ public class Main {
         System.out.println("\nWelcome to optimizely Channel API!\n");
         testFaceBookFunctionalities();
         testYoutubeFunctionalities();
+        testOptimizelyFunctionalities();
         testUnsupportedChannel(); // It will throw an exception : ChannelNotImplementedException:
     }
 
@@ -20,20 +21,15 @@ public class Main {
         System.out.println("******* Facebook functionality test started ********");
 
         // Getting channel from factory
-        Channel channel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
-
-        if (channel == null) {
-            printLog(ChannelConstants.CHANNEL_FACEBOOK, "Channel not found");
-            throw new ChannelNotImplementedException();
-        }
+        Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
 
         // Getting facebook post list
-        List<FacebookPost> facebookPosts = channel.getChannelsActionService().facebookPostList();
-        printFaceBookPost(channel.getChannelName(), facebookPosts);
+        List<FacebookPost> facebookPosts = facebookChannel.getChannelsActionService().facebookPostList();
+        printFaceBookPost(facebookChannel.getChannelName(), facebookPosts);
 
         // Create facebook post
-        FacebookPost facebookPost = channel.getChannelsActionService().createFacebookPost(buildFacebookPost());
-        printLog(channel.getChannelName(), "Post creation done : " + facebookPost.toString());
+        FacebookPost facebookPost = facebookChannel.getChannelsActionService().createFacebookPost(buildFacebookPost());
+        printLog(facebookChannel.getChannelName(), "Post creation done : " + facebookPost.toString());
 
         System.out.println("******* Facebook functionality test done ********");
         System.out.println();
@@ -43,20 +39,42 @@ public class Main {
         System.out.println("******* Youtube functionality test started ********");
 
         // Getting channel from factory
-        Channel channel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_YOUTUBE);
+        Channel youtubeChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_YOUTUBE);
 
-        if (channel == null) {
+        if (youtubeChannel == null) {
             printLog(ChannelConstants.CHANNEL_FACEBOOK, "Channel not found");
             throw new ChannelNotImplementedException();
         }
 
         // Getting youtube feed list
-        List<YoutubeFeed> facebookPosts = channel.getChannelsActionService().youtubeFeedList();
-        printYoutubeFeed(channel.getChannelName(), facebookPosts);
+        List<YoutubeFeed> facebookPosts = youtubeChannel.getChannelsActionService().youtubeFeedList();
+        printYoutubeFeed(youtubeChannel.getChannelName(), facebookPosts);
 
-        // Create facebook post : Not supported API
+        // Create Youtube post : Not supported API
 
         System.out.println("******* Youtube functionality test done ********");
+        System.out.println();
+
+    }
+
+    private static void testOptimizelyFunctionalities() {
+        System.out.println("******* Optimizely functionality test started ********");
+
+        // Getting channel from factory
+        Channel optimizelyChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_OPTIMIZELY);
+
+        if (optimizelyChannel == null) {
+            printLog(ChannelConstants.CHANNEL_OPTIMIZELY, "Channel not found");
+            throw new ChannelNotImplementedException();
+        }
+
+        // Getting optimizely feed list
+        List<YoutubeFeed> facebookPosts = optimizelyChannel.getChannelsActionService().youtubeFeedList();
+        printYoutubeFeed(optimizelyChannel.getChannelName(), facebookPosts);
+
+        // Create optimizely post : Not supported API
+
+        System.out.println("******* Optimizely functionality test done ********");
         System.out.println();
 
     }
