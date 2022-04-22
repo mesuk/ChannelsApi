@@ -58,11 +58,13 @@ Before providing channel, it will automatically initialize authorization/authent
 Each channel may have different security mechanism. In this case it will implement on it's on Auth class
  
 * Step 2: Access Post List
+
   `List<FacebookPost> facebookPosts = facebookChannel.getChannelsActionService().facebookPostList();`
 
 Here, we have channel and using it's action service it will call SDK/Background Service to fetch posts
 
 * Step 3: Create Post
+
   `FacebookPost facebookPost = facebookChannel.getChannelsActionService().createFacebookPost(buildFacebookPost());`
 
 Using channel, user can upload facebook post using SDK/API call. This API is facebook specific, if any other channel require create post facility, it have to implement fron their end.
