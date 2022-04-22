@@ -3,13 +3,13 @@ package org.optimizely.social.channels.youtube;
 import org.optimizely.social.Channel;
 
 public class YoutubeAuth {
-    private final String appId;
-    private final String appSecret;
+    private final String apiKey;
+    private final String clientId;
     private String accessToken;
 
-    public YoutubeAuth(String appId, String appSecret) {
-        this.appId = appId;
-        this.appSecret = appSecret;
+    public YoutubeAuth(String apiKey, String clientId) {
+        this.apiKey = apiKey;
+        this.clientId = clientId;
     }
 
     public Channel getChannelWithAccessToken(String channelName,String accessToken) {

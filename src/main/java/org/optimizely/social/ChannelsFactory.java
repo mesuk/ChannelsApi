@@ -10,21 +10,21 @@ public class ChannelsFactory {
         switch (channelName) {
             case ChannelConstants.CHANNEL_FACEBOOK:
 
-                FaceBookAuth auth = new FaceBookAuth(ChannelConstants.FB_APP_ID, ChannelConstants.FB_APP_SECRET);
-                return auth.getChannelWithAccessToken(channelName,
-                        ChannelConstants.FB_ACCESS_TOKEN);
+                FaceBookAuth auth = new FaceBookAuth(ChannelConstants.FB_APP_ID,
+                        ChannelConstants.FB_APP_SECRET);
+                return auth.accessToken(ChannelConstants.FB_ACCESS_TOKEN)
+                        .getChannelWithAccessToken(channelName);
 
             case ChannelConstants.CHANNEL_TWITTER:
-
             case ChannelConstants.CHANNEL_OPTIMIZELY:
                 return null;
             case ChannelConstants.CHANNEL_YOUTUBE:
 
-                YoutubeAuth youtubeAuth = new YoutubeAuth(ChannelConstants.YOUTUBE_APP_ID, ChannelConstants.YOUTUBE_APP_SECRET);
+                YoutubeAuth youtubeAuth = new YoutubeAuth(ChannelConstants.YOUTUBE_API_KEY, ChannelConstants.YOUTUBE_CLIENT_ID);
                 return youtubeAuth.getChannelWithAccessToken(channelName,
                         ChannelConstants.YOUTUBE_ACCESS_TOKEN);
             default:
-                throw new ChannelNotImplementedException();
+                throw new ChannelNotImplementedException("Channel : "+channelName+" not implemented YET. Please contact with vendor");
         }
     }
 }

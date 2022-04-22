@@ -16,6 +16,6 @@ public class ChannelConstants {
 
     // Youtube releated constants
     public static final String YOUTUBE_ACCESS_TOKEN = "";
-    public static final String YOUTUBE_APP_ID = "";
-    public static final String YOUTUBE_APP_SECRET = "";
+    public static final String YOUTUBE_API_KEY = "";
+    public static final String YOUTUBE_CLIENT_ID = "";
 }
