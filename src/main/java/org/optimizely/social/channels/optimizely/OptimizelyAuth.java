@@ -24,7 +24,7 @@ public class OptimizelyAuth {
     public Channel getChannelWithAccessToken(String channelName) {
         // Load channel and assign action service
         Channel channel = new Channel(channelName);
-        channel.setChannelsActionService(new OptimizelyAction(channel));
+        channel.setChannelsActionService(new OptimizelySDKAction(channel));
         return channel;
     }
 

@@ -24,7 +24,7 @@ public class FacebookAuth {
     public Channel getChannelWithAccessToken(String channelName) {
         // Load channel and assign action service
         Channel channel = new Channel(channelName);
-        channel.setChannelsActionService(new FacebookAction(channel));
+        channel.setChannelsActionService(new FacebookSDKAction(channel));
         return channel;
     }
 

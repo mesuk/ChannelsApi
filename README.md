@@ -50,7 +50,7 @@ chmod +x gradlew
 
 **How it works**
 
-* Step 1 : Get Channel from ChannelsFactory using channelName
+* API 1 : Get Channel from ChannelsFactory using channelName
 
   `Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);`
 
@@ -58,14 +58,25 @@ If no channel found, it will throw `ChannelNotImplementedException` exception.
 Before providing channel, it will automatically initialize authorization/authentication and generate sessionToken.
 Each channel may have different security mechanism. In this case it will implement on it's on Auth class
  
-* Step 2: Access Post List
+* API 2: Access Post List
 
   `List<FacebookPost> facebookPosts = facebookChannel.getChannelsActionService().facebookPostList();`
 
 Here, we have channel and using it's action service it will call SDK/Background Service to fetch posts
 
-* Step 3: Create Post
+* API 3: Create Post
 
   `FacebookPost facebookPost = facebookChannel.getChannelsActionService().createFacebookPost(buildFacebookPost());`
+
+* API 4: Search Resource
+  `List<FacebookPost> fbSearchedPost = facebookChannel.getChannelsActionService().facebookSearch("keyword");`
+
+ Here user will search on channel using keyword.
+
+* API 5: Delete Resource by id
+
+  `boolean isPostDeleted = facebookChannel.getChannelsActionService().deletePost(facebookPost.getId());`
+
+Here, user will delete resources using resource id.
 
 Using channel, user can upload facebook post using SDK/API call. This API is facebook specific, if any other channel require create post facility, it have to implement fron their end.

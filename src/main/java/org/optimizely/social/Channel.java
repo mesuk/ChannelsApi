@@ -1,10 +1,10 @@
 package org.optimizely.social;
 
-import org.optimizely.social.utils.ChannelsActionService;
+import org.optimizely.social.utils.ChannelsSDKActionService;
 
 public class Channel {
     private String channelName;
-    private ChannelsActionService channelsActionService;
+    private ChannelsSDKActionService channelsSDKActionService;
 
     public Channel(String channelName) {
         this.channelName = channelName;
@@ -18,11 +18,11 @@ public class Channel {
         this.channelName = channelName;
     }
 
-    public ChannelsActionService getChannelsActionService() {
-        return channelsActionService;
+    public ChannelsSDKActionService getChannelsActionService() {
+        return channelsSDKActionService;
     }
 
-    public void setChannelsActionService(ChannelsActionService channelsActionService) {
-        this.channelsActionService = channelsActionService;
+    public void setChannelsActionService(ChannelsSDKActionService channelsSDKActionService) {
+        this.channelsSDKActionService = channelsSDKActionService;
     }
 }

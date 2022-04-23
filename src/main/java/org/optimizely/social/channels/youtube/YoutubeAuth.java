@@ -22,7 +22,7 @@ public class YoutubeAuth {
 //        service.setApiHost(host);
 
 //        channel.setChannelsActionService(new FacebookAction(channel, this));
-        channel.setChannelsActionService(new YoutubeAction(channel));
+        channel.setChannelsActionService(new YoutubeSDKAction(channel));
 //        account.setService(service);
         return channel;
     }
