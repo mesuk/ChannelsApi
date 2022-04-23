@@ -60,22 +60,34 @@ Each channel may have different security mechanism. In this case it will impleme
  
 * API 2: Access Post List
 
-  `List<FacebookPost> facebookPosts = facebookChannel.getChannelsActionService().facebookPostList();`
+  `Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
+   List<FacebookPost> posts = facebookChannel.getChannelsActionService().facebookPostList();
+   assertThat(posts.size()).isNotEqualTo(0);`
 
 Here, we have channel and using it's action service it will call SDK/Background Service to fetch posts
 
 * API 3: Create Post
 
-  `FacebookPost facebookPost = facebookChannel.getChannelsActionService().createFacebookPost(buildFacebookPost());`
+  `FacebookPost facebookPost = buildFacebookPost();
+  Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
+  facebookPost = facebookChannel.getChannelsActionService()
+  .createFacebookPost(facebookPost); 
+  assertThat(facebookPost.getId()).isNotEqualTo(0);`
 
 * API 4: Search Resource
-  `List<FacebookPost> fbSearchedPost = facebookChannel.getChannelsActionService().facebookSearch("keyword");`
+
+`Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
+List<FacebookPost> posts = facebookChannel.getChannelsActionService().facebookSearch("keyword");
+assertThat(posts.size()).isNotEqualTo(0);`
 
  Here user will search on channel using keyword.
 
 * API 5: Delete Resource by id
 
-  `boolean isPostDeleted = facebookChannel.getChannelsActionService().deletePost(facebookPost.getId());`
+  `Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
+  boolean isDeleteSuccess = facebookChannel.getChannelsActionService()
+  .deletePost(1);
+  assertThat(isDeleteSuccess).isEqualTo(Boolean.TRUE);`
 
 Here, user will delete resources using resource id.
 
