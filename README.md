@@ -80,6 +80,7 @@ Here, we have channel and using it's action service it will call SDK/Background 
    facebookPost = facebookChannel.getChannelsActionService().createFacebookPost(facebookPost); 
    assertThat(facebookPost.getId()).isNotEqualTo(0);
  ```
+Using channel, user can upload facebook post using SDK/API call. This API is facebook specific, if any other channel require create post facility, it have to implement fron their end.
 
 * API 4: Search Resource
 ```
@@ -96,5 +97,3 @@ assertThat(posts.size()).isNotEqualTo(0);
   assertThat(isDeleteSuccess).isEqualTo(Boolean.TRUE);
   ```
 Here, user will delete resources using resource id.
-
-Using channel, user can upload facebook post using SDK/API call. This API is facebook specific, if any other channel require create post facility, it have to implement fron their end.
