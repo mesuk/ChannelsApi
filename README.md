@@ -11,6 +11,12 @@ Currently, we support below channels:
 
 [To view files, please browse this drive link](https://drive.google.com/drive/folders/1FBiJr9YiFRMoOpbGdrii5wbFUU6Q-zia?usp=sharing)
 
+I added below files in folder:
+
+* Project Structure
+* Output after build and test cases execution
+* Library JAR file
+
 **Build instructions**
 
 Environment requirements:
@@ -51,46 +57,44 @@ chmod +x gradlew
 **How it works**
 
 * API 1 : Get Channel from ChannelsFactory using channelName
-
-  `Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);`
-
+```
+  Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
+```
 If no channel found, it will throw `ChannelNotImplementedException` exception.
 Before providing channel, it will automatically initialize authorization/authentication and generate sessionToken.
 Each channel may have different security mechanism. In this case it will implement on it's on Auth class
  
 * API 2: Access Post List
-
-  `Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
+```
+  Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
    List<FacebookPost> posts = facebookChannel.getChannelsActionService().facebookPostList();
-   assertThat(posts.size()).isNotEqualTo(0);`
-
+   assertThat(posts.size()).isNotEqualTo(0);
+   ```
 Here, we have channel and using it's action service it will call SDK/Background Service to fetch posts
 
 
 * API 3: Create Post
-
-  `FacebookPost facebookPost = buildFacebookPost();
+```
+  FacebookPost facebookPost = buildFacebookPost();
    Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
    facebookPost = facebookChannel.getChannelsActionService().createFacebookPost(facebookPost); 
    assertThat(facebookPost.getId()).isNotEqualTo(0);
- `
-
+ ```
 
 * API 4: Search Resource
-
-`Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
+```
+Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
 List<FacebookPost> posts = facebookChannel.getChannelsActionService().facebookSearch("keyword");
-assertThat(posts.size()).isNotEqualTo(0);`
-
+assertThat(posts.size()).isNotEqualTo(0);
+```
  Here user will search on channel using keyword.
 
-
 * API 5: Delete Resource by id
-
-  `Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
+```
+  Channel facebookChannel = ChannelsFactory.getChannel(ChannelConstants.CHANNEL_FACEBOOK);
   boolean isDeleteSuccess = facebookChannel.getChannelsActionService().deletePost(1);
-  assertThat(isDeleteSuccess).isEqualTo(Boolean.TRUE);`
-
+  assertThat(isDeleteSuccess).isEqualTo(Boolean.TRUE);
+  ```
 Here, user will delete resources using resource id.
 
 Using channel, user can upload facebook post using SDK/API call. This API is facebook specific, if any other channel require create post facility, it have to implement fron their end.
